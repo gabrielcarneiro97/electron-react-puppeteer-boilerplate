@@ -19,10 +19,12 @@ async function setBrowser() {
   return browser;
 }
 
-async function getUserData(twitterUser) {
+async function getUserData(twitterUser = 'twitter') {
   const browser = await setBrowser();
   const page = await browser.newPage();
   await page.setViewport({ width: 1366, height: 768 });
+
+  console.log(twitterUser);
 
   await page.goto(`https://twitter.com/${twitterUser}`, { waitUntil: 'networkidle2' });
 
@@ -31,8 +33,8 @@ async function getUserData(twitterUser) {
     const userName = document.querySelector('.ProfileHeaderCard-nameLink').innerText;
     const [
       tweets,
-      followers,
       following,
+      followers,
       likes,
     ] = Array.from(document.getElementsByClassName('ProfileNav-value')).map((el) => el.innerText);
     return {
