@@ -5,8 +5,10 @@
   "homepage": "./",
   "main": "public/electron.js",
   "dependencies": {
+    "chromium": "^2.1.1",
     "electron-is-dev": "^1.1.0",
     "electron-reload": "^1.5.0",
+    "puppeteer-core": "^1.20.0",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-scripts": "3.2.0"
@@ -37,6 +39,7 @@
     ]
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.3",
     "concurrently": "^4.1.2",
     "electron": "^6.0.11",
     "electron-builder": "^21.2.0",
