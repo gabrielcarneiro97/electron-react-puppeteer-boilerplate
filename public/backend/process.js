@@ -1,8 +1,8 @@
 const { ipcRenderer } = require('electron');
+// importação da função para pegar os dados.
 const { getUserData } = require('./pup');
 
 ipcRenderer.on('getUserData', async (e, twitterUser) => {
-  console.log('getUserData');
   const userData = await getUserData(twitterUser || undefined);
   ipcRenderer.sendTo(1, 'getUserDataResponse', userData);
 });
